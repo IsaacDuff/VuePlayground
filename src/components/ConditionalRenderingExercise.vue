@@ -10,7 +10,9 @@
             screen.
           </p>
           <!-- add code to element below -->
-          <div class="player-card text-center">
+
+          <!-- note could also do v-if="false" -->
+          <div class="player-card text-center" v-if="state.player.number > 3">
             <div>
               <img :src="state.player.photo" />
             </div>
@@ -38,7 +40,7 @@
             toggle the value to true to get it to show up again.
           </p>
           <!-- add code to element below -->
-          <div class="player-card text-center">
+          <div class="player-card text-center" v-if="state.showPlayer">
             <div>
               <img :src="state.player.photo" />
             </div>
@@ -131,6 +133,8 @@ export default {
     const state = reactive({
       //add a property to toggle the player-card here.
       //add a property to set the number value here.
+      showPlayer: true,
+      grade: 50,
       player: {
         photo: "https://robohash.org/Mick",
         name: "Mick",
